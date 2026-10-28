@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+client_secret*.json
+token*.json
+*.mp3
+local-api*.log
+.local-audio/

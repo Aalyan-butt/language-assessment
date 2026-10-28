@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: kaplan-placement-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.7
+      - key: FRONTEND_ORIGIN
+        value: https://aalyan-butt.github.io
+      - key: APP_SECRET
+        generateValue: true
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_REFRESH_TOKEN
+        sync: false
+      - key: GOOGLE_SPREADSHEET_ID
+        sync: false
+      - key: GOOGLE_DRIVE_FOLDER_ID
+        sync: false
